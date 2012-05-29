@@ -1,36 +1,18 @@
 package demo.ssl;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
 import java.security.KeyStore;
-import java.security.Provider;
-import java.security.Security;
-
-import java.util.Properties;
-import java.util.prefs.Preferences;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
 public class SSLContextFactory {
-	private static SSLContext instance = null;
 
 	public static SSLContext newInstance(SSLConfig sslConfig) throws Exception {
 		return createSSLContext(sslConfig);
 	}
 
-	/**
-	 * ´´½¨ServerÄ£Ê½SSLContext
-	 * 
-	 * @return SSLContextÊµÀý
-	 * @throws Exception
-	 */
 	private static SSLContext createSSLContext(SSLConfig sslConfig) throws Exception {
 		SSLContext ctx = null;
 		KeyManagerFactory kmf = null;

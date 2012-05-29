@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
  * Base class of {@link org.apache.mina.core.service.IoHandler} classes which handle
  * proxied connections.
  *
- * @author <a href="http://mina.apache.org">Apache MINA Project</a>
  */
 public abstract class AbstractProxyIoHandler extends IoHandlerAdapter {
     private static final Charset CHARSET = Charset.forName("UTF-8");

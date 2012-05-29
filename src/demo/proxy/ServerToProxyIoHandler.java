@@ -22,7 +22,6 @@ package demo.proxy;
 /**
  * Handles the server to proxy part of the proxied connection.
  *
- * @author <a href="http://mina.apache.org">Apache MINA Project</a>
  */
 public class ServerToProxyIoHandler extends AbstractProxyIoHandler {
 }

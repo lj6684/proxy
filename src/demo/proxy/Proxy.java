@@ -33,18 +33,7 @@ import demo.ssl.SSLConfig;
 import demo.ssl.SSLContextFactory;
 
 /**
- * (<b>Entry point</b>) Demonstrates how to write a very simple tunneling proxy
- * using MINA. The proxy only logs all data passing through it. This is only
- * suitable for text based protocols since received data will be converted into
- * strings before being logged.
- * <p>
- * Start a proxy like this:<br/>
- * <code>org.apache.mina.example.proxy.Main 12345 www.google.com 80</code><br/>
- * and open <a href="http://localhost:12345">http://localhost:12345</a> in a
- * browser window.
- * </p>
- * 
- * @author <a href="http://mina.apache.org">Apache MINA Project</a>
+ * Main Class
  */
 public class Proxy {
 
@@ -77,7 +66,7 @@ public class Proxy {
 
 		// Set connect timeout.
 		connector.setConnectTimeoutMillis(30 * 1000L);
-		if(connectMode.equalsIgnoreCase("client")) {
+		if(connectMode.equalsIgnoreCase("sslclient")) {
 			// force to connect remote target use SSL mode
 			DefaultIoFilterChainBuilder filterChain = connector.getFilterChain();
 			SslFilter sslFilter = new SslFilter(SSLContextFactory.newInstance(sslConfig));
@@ -91,7 +80,7 @@ public class Proxy {
 
 		// Start proxy.
 		acceptor.setHandler(handler);
-		if(connectMode.equalsIgnoreCase("server")) {
+		if(connectMode.equalsIgnoreCase("sslserver")) {
 			// accept connection use SSL mode
 			DefaultIoFilterChainBuilder filterChain = acceptor.getFilterChain();
 			SslFilter sslFilter = new SslFilter(SSLContextFactory.newInstance(sslConfig));
@@ -100,7 +89,16 @@ public class Proxy {
 		}
 		acceptor.bind(new InetSocketAddress(Integer.parseInt(listenerPort)));
 
-		System.out.println("Listening on port " + Integer.parseInt(listenerPort));
+		String modeType = "General";
+		if(connectMode.equalsIgnoreCase("sslclient")) {
+			modeType = "SSL-Client";
+		} else if(connectMode.equalsIgnoreCase("sslserver")){
+			modeType = "SSL-Server";
+		}
+		System.out.println("Start agent in <" + modeType + "> mode");
+		
+		System.out.println("Listening on port: " + Integer.parseInt(listenerPort));
+		System.out.println("Sending request to: " + remoteIP + " (" + remotePort + ")");
 	}
 
 }
