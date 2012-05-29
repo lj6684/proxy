@@ -17,7 +17,7 @@
  *  under the License.
  *
  */
-package demo.proxy;
+package socket.proxy;
 
 /**
  * Handles the server to proxy part of the proxied connection.

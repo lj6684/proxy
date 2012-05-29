@@ -1,4 +1,4 @@
-package demo.ssl;
+package socket.ssl;
 
 import java.io.FileInputStream;
 import java.security.KeyStore;

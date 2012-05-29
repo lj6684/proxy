@@ -17,7 +17,7 @@
  *  under the License.
  *
  */
-package demo.proxy;
+package socket.proxy;
 
 import java.nio.charset.Charset;
 

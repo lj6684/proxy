@@ -1,4 +1,4 @@
-package demo.ssl;
+package socket.ssl;
 
 public class SSLConfig {
 	

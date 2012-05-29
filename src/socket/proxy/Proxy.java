@@ -17,7 +17,7 @@
  *  under the License.
  *
  */
-package demo.proxy;
+package socket.proxy;
 
 import java.io.FileInputStream;
 import java.net.InetSocketAddress;
@@ -29,8 +29,9 @@ import org.apache.mina.filter.ssl.SslFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 
-import demo.ssl.SSLConfig;
-import demo.ssl.SSLContextFactory;
+import socket.ssl.SSLConfig;
+import socket.ssl.SSLContextFactory;
+
 
 /**
  * Main Class
