@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="certmgr" default="build">
+	<target name="clear">
+		<delete dir="target" verbose="true"/>	
+		<mkdir dir="target"/>
+		<mkdir dir="target/log"/>
+	</target>
+	
+	<target name="copyfile" depends="clear">
+		<copydir dest="target/lib" src="lib"></copydir>
+		<copydir dest="target/keystore" src="keystore"></copydir>
+		<copyfile dest="target/config.properties" src="config.properties"></copyfile>
+		<copyfile dest="target/start.bat" src="start.bat"/>
+		<copyfile dest="target/start.sh" src="start.sh"/>
+	</target>
+	
+	<target name="build" depends="copyfile">
+		<jar destfile="target/lib/proxy.jar"
+			 basedir="bin"
+			 duplicate="preserve">
+		</jar>
+	</target>
+</project>
